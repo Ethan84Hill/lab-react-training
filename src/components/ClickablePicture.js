@@ -3,20 +3,24 @@ import { useState } from 'react'
 function ClickablePicture(props) {
     const imageOne = props.img 
     const imageTwo = props.imgClicked
-    const imgs = {imageOne, imageTwo}
+    const imgs = [imageOne, imageTwo]
+    const [imageIndex, setImageIndex] = useState(0)
 
-    const Images = () => {
-    const [selected, setSelected] = useState(imgs.imageOne)
+    const checkboxToggle = () => {
+        setImageIndex((prevIndex) => (prevIndex + 1) % imgs.length);
+      };
 
     return (
     <div>
-        <div>
-           <img onClick={() => setSelected(imgs.image) }
-            className="img-size" src={props.img} alt="img" />
-        </div>
+        <img
+        className='img-size'
+        src={imgs[imageIndex]}
+        alt='img'
+        onClick={checkboxToggle}
+      />
     </div>
     )
-        }
+        
 }
 
 export default ClickablePicture;
