@@ -1,4 +1,4 @@
-
+import Rating from "./Rating";
 
 function DriverCard(props) {
     
@@ -9,7 +9,7 @@ function DriverCard(props) {
         </div>
         <div>
         <p>{props.name} </p>
-        <p>{props.rating} </p>
+        <Rating children={props.rating} />
         {/* <p>{props.img} </p> */}
         <p>{props.car.model} - {props.car.licensePlate} </p>
        </div> 
